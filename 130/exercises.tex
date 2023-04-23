@@ -1,0 +1,71 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Contributors: Keegan}
+\lhead{CS130-Related Custom Exercises}
+\rfoot{\thepage}
+
+\begin{document}
+
+
+{\small \textcolor{red}{Disclaimer:}
+These exercises are not provided by the module organiser, and to the best of our knowledge are not present in any course materials.
+While the aim is to ensure these exercises are appropriate and relevant to each module's content, they may not reflect the difficulty or style of question present in upcoming exam papers - you should first exhaust the module resources provided.
+}
+
+\subsection*{Sets}
+
+\begin{enumerate}
+    
+    \item Give the size of each of the following sets:
+    \begin{align*} 
+        A &= \{ y \in \mathbb{Z} : 2y \notin \mathbb{Z}, \quad 0 \leq y < 100 \} \\
+        B &= \{ ab : a, b \in \mathbb{N}, \quad a < b \leq 5 \} \\
+        C &= \{ n \in \mathbb{N} : 2n^2 - 3n + 1 < 0 \} \\
+        D &= \{ a \in \mathbb{Q} : a \notin \mathbb{Z}, \quad 5a \in \mathbb{Z}, \quad -11 \leq 2a \leq 11 \}
+    \end{align*}
+
+\end{enumerate}
+
+\subsection*{Relations}
+
+\begin{enumerate}
+
+    \item Let $S$ be a set such that $|S|=n$. 
+    Consider any relation $R \subseteq S \times S$ such that $R$ is neither reflexive, symmetric, nor transitive.
+    For each $n \in \mathbb{N}$, what is the largest that $|R|$ can be?
+    
+
+    \item Let $S = \{1, 2, \dots, 8 \}$ and $m \in \mathbb{R}$. We define $\sim_m \> \subseteq S \times S$ such that
+    \begin{equation*}
+        a \sim_m b \quad \text{iff} \quad m \cdot a \leq b
+    \end{equation*}
+     
+    \begin{enumerate}
+        \item For which values of $m$ is $\sim_m$ an equivalence relation? 
+        \item For which values of $m$ is $\sim_m$ a partial order?
+    \end{enumerate}
+
+    \item
+    Let $k \in \mathbb{R}$. Define the relation $*_k \subseteq \> \sim_2 \times \sim_2$ (see question above) such that
+    \begin{equation*}
+        (a_1, a_2) * (b_1, b_2) \quad \text{iff} \quad (a_1-a_2)^2+(b_1-b_2)^2 \leq k
+    \end{equation*}
+
+    \begin{enumerate}
+        \item For which $k$ is $*_k$ an equivalence relation? 
+        \item For which $k$ is $*_k$ a partial order?
+    \end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
