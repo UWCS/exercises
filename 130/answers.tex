@@ -1,0 +1,145 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Contributors: Alia}
+\lhead{CS130-Related Custom Exercises Answers}
+\rfoot{\thepage}
+
+\begin{document}
+
+\section*{Sets}
+\subsection*{A}
+The set of even integers that aren't integers, hence $A$ has size 0.
+
+\subsection*{B}
+We're looking for all possible \emph{unique} sums of 3, 4, 7 and 8. \\
+
+\noindent $B = \{7, 10, 11, 12, 15\}$, which has size 5.
+
+\subsection*{C}
+Solving the quadratic yields $n = \frac{1}{2}, 1$. We want integers \emph{between} these two bounds, so C also has 0 elements.
+
+\subsection*{D}
+If $a \not\in \mathbb{Z}$ but $5a \in \mathbb{Z}$, then $a = \frac{k}{5}$, where k is an integer \& not a multiple of 5. \\
+
+\noindent $|2a| \leq 5$ tells us that $\frac{-5}{2} \leq a \leq \frac{5}{2}$. \\
+
+\noindent Hence, $D = \{\pm \frac{12}{5}, \pm \frac{11}{5}, \pm \frac{9}{5}, \pm \frac{8}{5}, \pm \frac{7}{5}, \pm \frac{6}{5}, \pm \frac{4}{5}, \pm \frac{3}{5}, \pm \frac{2}{5}, \pm \frac{1}{5}\}$, which has 20 elements.
+
+
+\section*{Relations}
+\begin{enumerate}
+    \item Base case: $|S| = 1$. No relation is possible (has to be reflexive). \\
+
+    \noindent Let $S = \{1, 2\}$, then $S \times S = \{(1,1), (1,2), (2,1), (2,2)\}$. We only need to remove 2 pairs ((1,1) and (2,1)) to break reflexivity, symmetry and transitivity. \\
+
+    \noindent Now, let $S = \{1, 2, 3\}$, if we remove 3 elements (e.g., (1,1), (1,3) and (2,1)) we can break reflexivity, symmetry and transitivity. \\
+    \noindent Note that adding any more elements into S doesn't change the amount of elements we need to remove - just one for each property we want to break. \\
+
+    \noindent Hence, $|R|$ is a function of $n$, given by:
+    \begin{equation*}
+        |R| = 
+            \begin{cases}
+                0 & n < 2, \\
+                2 & n = 2, \\
+                n-3 & n > 2
+            \end{cases}
+    \end{equation*}
+
+    \pagebreak
+    \item 
+    \begin{enumerate}
+        \item For reflexivity, $m \leq 1$. \\
+        \noindent For symmetry, $m < 1$. \\
+
+        \noindent Does transitivity hold? Check with $m = \frac{1}{2}$. \\
+        \noindent We can find a counter-example with 5, 2 and 1: \\
+            $\frac{1}{2} \times 5 = \frac{5}{2} \Rightarrow 5 \sim_{\frac{1}{2}} 2$ \\
+            $\frac{1}{2} \times 2 = 1 \Rightarrow 2 \sim_{\frac{1}{2}} 1$ \\
+            But $ \frac{5}{2} > 1 \Rightarrow$ not transitive. \\
+
+        \noindent If we repeat the above with $m = \frac{-1}{2}$, we see that the relation is transitive. $m=0$ would also work here because the smallest number in $S$ is 1, which is greater than 0. \\
+
+        \noindent Hence, for $\sim_m$ to be an equivalence relation, we need $m \leq 0$. \\
+
+        \item For anti-symmetry, $m \geq 1$. \\
+        
+        \noindent This would also allow for transitivity, as we would have:
+            \begin{equation*}
+                ma \leq mb < c, \;\;\;\; a,b,c \in S
+            \end{equation*}
+        \noindent Intuitively, if $ma \leq b$ \& we multiply by some $m \geq 1$, then $ma \leq mb$. If $mb \leq c$, then it follows that $ma \leq c$. \\
+
+        \noindent But for reflexivity to hold, we need $m \leq 1$. \\
+        
+        \noindent Hence, the only value of $m$ for which $\sim_m$ is a partial order is $m = 1$. \\
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}
+        \item Here's every possible pair of $S \times S$ under the relation $\sim_2$:
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                1,2 & & & \\
+                \hline
+                1,3 & & & \\
+                \hline
+                1,4 & 2,4 & & \\
+                \hline
+                1,5 & 2,5 & & \\
+                \hline
+                1,6 & 2,6 & 3,6 & \\
+                \hline
+                1,7 & 2,7 & 3,7 & \\
+                \hline
+                1,8 & 2,8 & 3,8 & 4,8 \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \noindent The largest possible value of $(a_1 - a_2)^2 = (1 - 8)^2 = 49$, so, for reflexivity, $k \geq 98$. The relation is already symmetric due to the associativity of addition. \\
+
+        \noindent For reflexivity to hold, we had to set $k$ to be the maximum possible sum $\Rightarrow$ all other sums are $\leq k$ $\Rightarrow$ transitivity. \\
+
+        \noindent Therefore, $*_k$ is an equivalence relation $\forall k \geq 98$. \\
+
+        \item By associativity of addition, $(a_1, a_2) * (b_1,b_2) \Rightarrow (b_1, b_2) * (a_1, a_2) \Rightarrow $ no possible value of $k$ for which $*_k$ is a partial order. \\ 
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item No. By counter-example, choose $n = 3 \;\&\; k = 1$: \\
+                then $3 - 1 = 2$, which is even, so $3R_11$ \\
+                but $1 - 3 = -2$, which is even, so $1R_13$ \\
+            
+            \noindent We have created a cycle $\Rightarrow R_1$ is not acyclic. \\
+
+            \item No. Again, we have the above counter-example (note there is no requirement that $n-k \in \mathbb{N}$). \\
+        \end{enumerate}
+        
+        \item Relations can be one of 3 things: symmetric, antisymmetric or neither. \\
+        
+        \noindent If the relation is symmetric, then $nRk \;\&\; kRn$ will exist in the relation, so a cycle can be formed $\Rightarrow R$ cannot be symmetric. \\
+        
+        \noindent What if the relation is neither symmetric nor antisymmetric? \\
+
+        \noindent The problem with this is the $\forall$ quantifier in the predicate: we need there to be no cycle for \emph{regardless} of the values we choose (unless they are all the same). Consider this example:
+        \begin{center}
+            $1R2 \;\;\; 2R1 \;\;\; 1R3$
+        \end{center}
+
+        \noindent The relation is neither symmetric nor antisymmetric, but a cycle still exists. \\
+
+        \noindent If symmetry causes cycles, and being neither symmetric nor antisymmetric can cause a cycle, it follows that any acyclic relation must be antisymmetric.
+    \end{enumerate}
+\end{enumerate}
+\end{document}
